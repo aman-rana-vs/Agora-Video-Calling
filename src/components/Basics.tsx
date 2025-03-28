@@ -15,9 +15,11 @@ import "../styles.css";
 export const Basics = () => {
   const [calling, setCalling] = useState(false);
   const isConnected = useIsConnected();
-  const [appId, setAppId] = useState("");
+  const [appId, setAppId] = useState("3b92f5e789ab408d9f8e4eb2e0636879");
   const [channel, setChannel] = useState("test");
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(
+    "007eJxTYDhx5Ni9KXIpc3Jz7xuoqTd0+N5da/6gmc/iiHAtn8ndnaUKDMZJlkZppqnmFpaJSSYGFimWaRapJqlJRqkGZsZmFuaWIn7P0hsCGRneK59lYmSAQBCfhaEktbiEgQEAUlMfZQ=="
+  );
 
   useJoin(
     { appid: appId, channel: channel, token: token ? token : null },
@@ -32,6 +34,8 @@ export const Basics = () => {
 
   //remote users
   const remoteUsers = useRemoteUsers();
+
+  const totalUsers = remoteUsers.length + 1;
 
   return (
     <>
@@ -105,6 +109,7 @@ export const Basics = () => {
               <i className="i-mdi-phone" />
             )}
           </button>
+          <div>total users: {totalUsers}</div>
         </div>
       )}
     </>
